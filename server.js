@@ -16,16 +16,12 @@ app.get('/', function(req,res){
 
 function getDate(d) {
     if (!moment(d).isValid()) {return null;}    
-    else {
-        var months=["January","February","March","April","May","June","July","August","September","October","November","December"];
-        var resultingDate = months[d.month()]+" "+d.date()+", "+d.year();
-        return resultingDate;
-    }
+    else {return d.format("MMMM DD, YYYY");}
 }
 
 function getUnix(d) {
     if (!moment(d).isValid()) {return null;} 
-    else return d.unix();
+    else {return d.unix();}
 }
 
 app.listen(process.env.PORT || 8080);
